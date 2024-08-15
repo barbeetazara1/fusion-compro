@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+.pyo
+.idea/
+/settings.json
+.DS_Store
+.tar

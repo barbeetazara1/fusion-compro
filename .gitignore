@@ -1,0 +1,11 @@
+penv/
+penv
+*.pyc
+__pycache__/
+.pyo
+.idea/
+/settings.json
+.DS_Store
+.tar
+compro/staticfiles/*
+/compro/staticfiles/*

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+n3w@cjl1atp6zv203jhbwfd-3w1pp3^(ru#dv(2@(z&cq9qwh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['157.173.220.157', '127.0.0.1']
 
 
 # Application definition
@@ -119,8 +119,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #STATIC_ROOT = "/Backup Lenovo/UBAID/sekawansystema/staticfiles/"
-STATIC_ROOT = "/Users/baronbetazara/project/compro/staticfiles"
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = "/Users/baronbetazara/project/compro/staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # during development add this line
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")

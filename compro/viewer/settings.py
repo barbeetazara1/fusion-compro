@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.views import View
-from apps.models import Users, OwnerProfile
+from app.models import Users, OwnerProfile
 from django.utils.decorators import method_decorator
 from services.firebase import firebase_upload
 from services.utils import role_required

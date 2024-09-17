@@ -9,6 +9,5 @@ compro/root_conf.json
 compro/staticfiles
 compro/static/.DS_Store
 compro/updater.sh
-*.sqlite3
-*.pyc
+compro/*.sqlite3
 

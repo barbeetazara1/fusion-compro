@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.views import View
 from django.contrib.auth import authenticate, login, get_user_model, logout
-from apps.models import Users
+from app.models import Users
 from django.http import JsonResponse
 
 

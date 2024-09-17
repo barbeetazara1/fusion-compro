@@ -1,6 +1,6 @@
 from functools import wraps
 from django.conf import settings
-from apps.models import Visitor
+from app.models import Visitor
 import os, json
 
 

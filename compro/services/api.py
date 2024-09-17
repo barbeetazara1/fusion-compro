@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.views import View
 from django.http import JsonResponse
-from apps.models import Visitor
+from app.models import Visitor
 from django.utils import timezone
 from datetime import timedelta
 import datetime

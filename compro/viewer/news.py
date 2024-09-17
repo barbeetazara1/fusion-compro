@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.views import View
-from apps.models import Article
+from app.models import Article
 
 
 

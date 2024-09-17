@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from services.utils import role_required
 from services.firebase import firebase_upload, firebase_delete
-from apps.models import Partner, Article, Visitor
+from app.models import Partner, Article, Visitor
 from django.utils import timezone
 from datetime import timedelta
 

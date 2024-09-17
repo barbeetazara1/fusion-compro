@@ -1,29 +1,27 @@
-#!/bin/bash
-
 # Ambil argumen pertama sebagai mode (dev atau prod)
 mode=$1
 
 # Fungsi untuk menjalankan perintah collectstatic dan menyimpan file statik
 function run_collectstatic {
     echo "Running collectstatic..."
-    sudo rm -rf /home/sekawansystema/project/fusion-compro/compro/staticfiles
+    sudo rm -rf /home/sekawansystema/project/fusion-compro/compro//staticfiles
     echo "yes" | /home/sekawansystema/project/fusion-compro/penv/bin/python3 /home/sekawansystema/project/fusion-compro/compro/manage.py collectstatic
     sudo rm -rf /var/www/fusion-compro/compro/static/*
-    sudo cp -r /home/sekawansystema/project/fusion-compro/compro/staticfiles/* /var/www/fusion-compro/compro/static
+    sudo cp -r /home/sekawansystema/project/fusion-compro/compro/staticfiles/* /var/www/fusion-compro/static
 }
 
 # Fungsi untuk menghentikan dan memulai ulang service menggunakan systemctl
 function restart_service {
-    sudo systemctl stop compro.service
-    sudo systemctl start compro.service
+    sudo systemctl stop fusion-compro.service
+    sudo systemctl start fusion-compro.service
 }
 
 # Fungsi untuk menjalankan server Django dengan mode dev
 function run_server_dev {
-    port=7000
-    sudo systemctl stop compro.service
+    port=9020
+    sudo systemctl stop fusion-compro.service
     echo "Running Django server in dev mode on port $port..."
-    /home/sekawansystema/project/fusion-compro/penv/bin/python3 /home/sekawansystema/project/fusion-compro/compro/manage.py runserver 0.0.0.0:$port
+    python /home/sekawansystema/project/fusion-compro/compro//manage.py runserver 0.0.0.0:$port
 }
 
 # Fungsi untuk menjalankan server menggunakan Gunicorn
@@ -36,7 +34,7 @@ function run_gunicorn {
 # Main script logic
 if [ "$mode" == "dev" ]; then
     run_collectstatic
-    clear
+    
     run_server_dev
 elif [ "$mode" == "prod" ]; then
     run_collectstatic
@@ -45,4 +43,3 @@ else
     echo "Usage: $0 {dev|prod}"
     exit 1
 fi
-

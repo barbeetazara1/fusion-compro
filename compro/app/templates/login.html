@@ -82,17 +82,24 @@
       }
     })
       .then(data => {
-        if (data.status === true) {
-          window.location.replace("{% url 'main-dashboard' %}");
-        } else {
-          mmsg.textContent = data.data.msg;
-          mmsg.hidden = false;
-          username.value = '';
-          passw.value = '';
-        }
+        // if (data.status === true) {
+        //   if (data.data.merchant === 'odoo') {
+        //     for (const [name, value] of Object.entries(data.data.odoo_cookie)) {
+        //         document.cookie = `${name}=${value}; path=/;`;
+        //     }
+        //     const redirectUrl = new URL(data.data.redirect_url, window.location.origin).href;
+        //     window.location.href = (redirectUrl);
+        //   }
+          
+        // } else {
+        //   mmsg.textContent = data.data.msg;
+        //   mmsg.hidden = false;
+        //   username.value = '';
+        //   passw.value = '';
+        // }
       })
       .catch((error) => {
-        alert('Internal server error: ', error);  // Mena
+        window.location.href = ('https://odoo.internal-fusion-erp.site/web');
       });
       loading.hidden = true;
   }

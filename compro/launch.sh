@@ -18,7 +18,7 @@ function restart_service {
 
 # Fungsi untuk menjalankan server Django dengan mode dev
 function run_server_dev {
-    port=9020
+    port=7000
     sudo systemctl stop fusion-compro.service
     echo "Running Django server in dev mode on port $port..."
     python /home/sekawansystema/project/fusion-compro/compro//manage.py runserver 0.0.0.0:$port

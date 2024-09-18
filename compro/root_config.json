@@ -1,0 +1,42 @@
+{
+    "app_name": "compro",
+    "app_alias_name": "compro",
+    "app_index_subtitle": "Great Lawyer",
+    "contact_info": {
+        "company_address": "Jl. Kemerdekaan Raya no. 23, Blok D, Kebon Sirih, Jakarta Pusat.",
+        "instagram_link": "https://instagram.com/",
+        "whatsapp_number": "https://whatsapp.com/",
+        "phone_number": "08111111111",
+        "email": "support@domain.com"
+    },
+    "firebase_conf": {
+        "firebase_credentials": {
+            "type": "service_account",
+            "project_id": "keraton-d44f3",
+            "private_key_id": "6aa6ce32a6f33d2fbab7424e73d17642ed111f41",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCrKh00ww6lHlib\n5dsuXp9/QSknB4x75vv30XNr7vCLiTvtXj4a8mEHpDnAL0aQnYIpg2gxyfrM/JJB\nlnEiK/kJwEYE+f1IWc3vrQB0MORVXE6u6Fc1Kreij8dfLjFP5pfbqqoAevuu8pi5\nmEzq6dTMfaJ7ZL2XG3Uh9yf2r1fglaSDwZhSIIi6hecFyVZh6vH9LfS6HaMkOyPS\npWwnMr8IXOp7qn9Hkxr+0KSTXVhMFYK8029VvdtGjNSQFgm32o7KBDOaTxOu+CBG\nbbKd0FmTMnS7JDMz6i4EgqqVocQVGRdYosagW98JOWQ932VcWP1oZnSlzNKPybkh\nDEIs1ImhAgMBAAECggEASB7Am6CspQo6T8X0Kn+YOOhdzKIzoWlcNbk9JvdQx5qV\nc5jIFlaWZ7/czYud8gVL+O3zkzcFxCWQAq6/EKTylBc96Y7kF/4u9ZQxosOPEiCI\nzs37IN3U7lwip4oxIPeKePZaF0W6kqaJj3oKvtiz3034joGOGQNqwVsArcKIBoqV\nUHAMwCO1DDREXxKW/01Of9bC5EV6B7rVACKV+Bkm1yXCNaK3VbvkyQ1hfLp5PW66\nVdB4IZSc56YwYFtd00Vm0It9gAs0IKB+p7VKQHLZN71008ZcJzKrhpEZk6qbpzan\n54eimOYs1Otf4CqdUQf5zlIYpoAlii8HzjNieHBq+QKBgQDsBADtA3uNFYOksPQJ\nw/Ij4+G1ihmn/UODhWOLOTF5X82oTkQhpuhpYocHcXb//xtb1y4ujIqCUW+uEy/u\n1pjHZSEdhml4KnV3GFTIjkU7wBvgVsycKDD6ictUZXNo5C4QInEyzR1QTZ1AZKIK\nIY8BzXg9PD79R+PzgD8ejfTZzwKBgQC5qF0vGN7SJmDCRcmLHvFHda1zwtwA0I6G\n9yMBoVhCX7SIUyQziN3rLCqp0Ey/uZxtf1O6Nmur6K5Y4M1Gx6PX1zqCFdGUzqa/\nuXRSyNXN1PRiWyc3ZS18TFapMMqN+jfj3saORr/nf6B4qS0QNvneB29sAi3FKlZf\nnvRnR43xjwKBgC9xZpY+WvmzV3EluQi1gNlCF78ccafZO1cW2znDV3Skk3y/ruZs\n3M9CZQ5T+q3fJCrECJ6G1dj4cdC2Pq5uKOv8IjoDKPRk5JP6KiDeqIAoT/I6wIqr\ncZ0LUfo3Ion1RGUt5z9lB/16fJ/TGteag1rDaOY2VBsp9mKeZxHHS271AoGAK22I\nrpWguYOkqozsghBw3AhY1HVGRSKD1GpG1ADLxmrgrerU0wE29+XS7Pn+mfJu9uYL\nzckhEotRDRU4r0/PsZN06iz0Y1ybgMl+vkagTI99wuwTlk+ifirVMqppFyDqpfDc\nfTdreFlQTik0k1Bozljq5Vb1IeOvZJqoDOid+V0CgYALdy3EcrVkaZ736YGDZuy4\ngyHJiuEuzY4iw23iGwDkcIyICRn8/mf5JqVaBwh0gz5376CJCNkecMHFpIcnAh3g\nr0V0DPcD8jztaWzsJcl5Bre5trQVo5ckmbZW77bYRntli6W+15dUCv/Gb7SrFV1A\nFy574LhF8O9qA3YK+LWvNA==\n-----END PRIVATE KEY-----\n",
+            "client_email": "firebase-adminsdk-l5xlw@keraton-d44f3.iam.gserviceaccount.com",
+            "client_id": "106533522358217242226",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-l5xlw%40keraton-d44f3.iam.gserviceaccount.com",
+            "universe_domain": "googleapis.com"
+          },
+        "firebase_bucket_name": "keraton-d44f3.appspot.com"
+    },
+    "telebot": {
+        "api_key": "",
+        "bot_id": ""
+    },
+    "web_settings": {
+        "debug": true,
+        "allowed_host" : ["internal-fusion-erp.site", "127.0.0.1"],
+        "csrf_trusted_origins": ["https://internal-fusion-ero.site", "http://internal-fusion-ero.site"],
+        "auth_user" : "app.Users",
+        "root_urlconf": "compro.urls",
+        "wsgi_application" : "compro.wsgi.application",
+        "asgi_application" : "compro.asgi.application"
+    }
+    
+}

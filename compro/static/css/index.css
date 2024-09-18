@@ -20,7 +20,7 @@
      * colors
      */
   
-    --russian-violet: hsl(269, 36%, 22%);
+    --russian-violet: hsl(239, 96%, 10%);
     --dark-purple: hsl(268, 22%, 15%);
     --eerie-black: hsl(240, 4%, 10%);
     --davys-gray: hsl(0, 0%, 34%);
@@ -42,8 +42,9 @@
      * typography
      */
   
-    --ff-poppins: 'Poppins', sans-serif;
-    --ff-roboto: 'Roboto', sans-serif;
+    --ff-poppins: 'Space Grostek', sans-serif;
+    --ff-primary: 'Space Grostek', sans-serif;
+    --ff-roboto: 'Space Grostek', sans-serif;
   
     --fs-1: 3rem;
     --fs-2: 2rem;
@@ -286,7 +287,7 @@
   }
   
   .logo {
-    color: var(--dark-purple);
+    color: var(--pumpkin);
     font-family: var(--ff-roboto);
     font-size: 35px;
     font-weight: var(--fw-900);
@@ -297,6 +298,7 @@
     color: var(--white);
     font-size: 35px;
     padding: 2px 8px;
+    border-radius: .150em;
   }
   
   .navbar {
@@ -348,6 +350,8 @@
     background-color: var(--russian-violet);
     color: var(--white);
     padding-block-start: calc(var(--section-padding) + 70px);
+    padding-left: 4em;
+    padding-right: 4em;
   }
   
   .hero-content { margin-block-end: 20px; }
@@ -356,6 +360,18 @@
   
   .hero .section-text { margin-block-end: 30px; }
   
+  .hero-banner {
+    animation: bounce 3s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Posisi awal dan akhir */
+    }
+    50% {
+        transform: translateY(-30px); /* Posisi tengah (naik) */
+    }
+}
   
   
   
@@ -442,6 +458,10 @@
   }
   
   .about-item .item-title { margin-block-end: 10px; }
+
+  .about-banner {
+    animation: bounce 3s ease-in-out infinite;
+  }
   
   
   
@@ -552,6 +572,13 @@
   }
   
   .footer-top .section-text { margin-block: 15px 22px; }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+  }
   
   .social-list {
     display: flex;
@@ -677,6 +704,7 @@
       margin-inline: auto;
     }
   
+    
   
   
     /**
@@ -714,7 +742,7 @@
    * responsive for larger than 768px screen
    */
   
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
   
     /**
      * CUSTOM PROPERTY
@@ -727,10 +755,17 @@
        */
   
       --fs-1: 4.5rem;
-  
+      
     }
-  
-  
+    
+    .hero {
+      padding-left: .4em;
+      padding-right: .4em;
+    }
+
+    .hero-banner {
+      display: none;
+    }
   
     /**
      * REUSED STYLE

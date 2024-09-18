@@ -8,6 +8,7 @@ from services.api import API
 
 urlpatterns = [
     path('', views.index, name='landing'),
+    path('trial/', views.check_trial_status, name='check-trial-status'),
     path('dashboard/', Dashboard.as_view(context='main-dashboard'), name='main-dashboard'),
     path('dashboard/partner/', Dashboard.as_view(context='partner-dashboard'), name='partner-dashboard'),
     path('dashboard/partner/create-new/', Dashboard.as_view(context='new-partner'), name='new-partner'),

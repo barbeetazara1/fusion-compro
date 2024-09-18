@@ -19,6 +19,10 @@ PHONE_NUMBER = root_env['contact_info']['phone_number']
 FIREBASE_CREDENTIALS = root_env['firebase_conf']['firebase_credentials']
 FIREBASE_BUCKET_NAME = root_env['firebase_conf']['firebase_bucket_name']
 
+# Odoo conf
+ODOO_URL = root_env['odoo_conf']['url']
+ODOO_MAIN_PATH = root_env['odoo_conf']['main_path']
+ODOO_DB = root_env['odoo_conf']['database']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://mlawyer.systema.id',

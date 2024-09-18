@@ -21,6 +21,7 @@ urlpatterns = [
     path('main-profile/', OwnerConfigurations.as_view(context='main-profile'), name='main-profile'),
     path('user-configuration/', UserConfigurations.as_view(context='user-list'), name='user-list'),
     path('login/', Authentication.as_view(context='login'), name='login'),
+    path('trial/', Authentication.as_view(context='trial'), name='trial'),
     path('logout/', Authentication.as_view(context='logout'), name='logout'),
     path('register/', Authentication.as_view(context='register'), name='register'),
 

@@ -27,7 +27,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://systema.id',
 ]
 
-ALLOWED_HOSTS = root_env['web_settings']['allowed_host']
+ALLOWED_HOSTS = ['internal-fusion-erp.site']
 SECRET_KEY = 'django-insecure-+n3w@cjl1atp6zv203jhbwfd-3w1pp3^(ru#dv(2@(z&cq9qwh'
 
 AUTH_USER_MODEL = 'app.Users'

@@ -16,15 +16,15 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="{% static 'css/index.css' %}">
-
+  
   <!-- 
     - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@700;900&display=swap"
-    rel="stylesheet">
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
 </head>
 
 <body id="top">
@@ -87,28 +87,19 @@
 
           <div class="hero-content">
 
-            <p class="section-subtitle">Best Mobile App 12 day free</p>
+            <p class="section-subtitle">Dapatkan uji coba gratis selama 14 hari</p>
 
-            <h1 class="h1 hero-title">Make an Impression & Drive More Downloads With VAST</h1>
+            <h1 class="h1 hero-title">{{description}}</h1>
 
             <p class="section-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu ut labore et
-              dolore magna
-              aliqua. Ut enim ad minim veniamquis nostrud
+              Lebih dari 150+ perusahaan telah bergabung, platform terbaik dan simple untuk 
+              memudahkan Anda mengelola perusahaan. 
             </p>
 
             <ul class="btn-list">
 
               <li>
-                <a href="#" class="btn-item-link" aria-label="Download from app store">
-                    <img src="{% static 'images/app-store.png'%}" width="185" height="69" alt="app store" class="img">
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="btn-item-link" aria-label="Download from play store">
-                    <img src="{% static 'images/play-store.png'%}" width="185" height="69" alt="play store" class="img">
-                </a>
+                <a href="#" class="btn btn-primary" aria-label="DEMO GRATIS" style="padding: 1em 5em; font-size: 1em; font-family: sans-serif; font-weight: bold; letter-spacing: 1px;">DEMO GRATIS</a>
               </li>
 
             </ul>
@@ -228,7 +219,7 @@
 
             <p class="section-subtitle">Our Acquaintance</p>
 
-            <h2 class="h2 section-title">We Are Trusted By Thousands Of People</h2>
+            <h2 class="h2 section-title">{{ app_alias_name }} dipercaya lebih dari 150 perusahaan</h2>
 
             <p class="section-text">
               Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullamcorper mattis,
@@ -429,13 +420,7 @@
 
         <div class="footer-brand">
 
-          <a href="#" class="logo">VAST</a>
-
-          <p class="section-text">
-            Duis cursus, mi quis viverra ornare, eros dolor interdum nulla utimp erdiet commodo diam libero vitae nibh
-            et jus cursus
-            id rutrum lore imperdiet ut sem vitae risus tristique posuere
-          </p>
+          <a href="#" class="logo">{{ app_alias_name }}</a>
 
           <ul class="social-list">
 
@@ -498,34 +483,6 @@
         <ul class="footer-list">
 
           <li>
-            <p class="footer-list-title">Useful Links</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Contact Us</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">App Download</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">How It Works</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Terms & Conditions</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
             <p class="footer-list-title">Get In Touch</p>
           </li>
 
@@ -538,15 +495,14 @@
           <li class="footer-item">
             <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
 
-            <a href="mailto:supportvast@gmail.com" class="item-link">supportvast@gmail.com</a>
+            <a href="mailto:support{{ app_alias_name }}@gmail.com" class="item-link">support{{ app_alias_name }}@gmail.com</a>
           </li>
 
           <li class="footer-item">
             <ion-icon name="map-outline" aria-hidden="true"></ion-icon>
 
             <address class="item-link address">
-              3004 3 rd Ln,<br>
-              Los Angeles, Calnia, 11
+              {{address}}
             </address>
           </li>
 
@@ -559,7 +515,7 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>.
+          &copy; 2024 All Rights Reserved by <a href="#" class="copyright-link">{{app_alias_name}}</a>.
         </p>
 
       </div>

@@ -26,34 +26,13 @@ class Authentication(View):
         if (self.context == 'login'):
             username = request.POST.get('username')
             passw = request.POST.get('password')
+            
             odoo_sts, data, cookie = odoo.authenticate(username, passw)
             
-            if (odoo_sts):
-                # Menyimpan informasi pengguna di Django
-                uid = data['result']['uid']
-                user_name = data['result']['name']
-                db = data['result']['db']
-                # Menyimpan informasi sesi di Django
-                request.session['odoo_user_id'] = uid
-                request.session['odoo_username'] = user_name
-                request.session['odoo_db'] = db
-
-                cookie_data = {o_cook.name: o_cook.value for o_cook in cookie}
-                # Mengarahkan pengguna ke Odoo
-                redirect_url = f"https://{settings.ODOO_URL}/web"
-                response_redirect = HttpResponseRedirect(redirect_url)
-                # Atur cookie untuk domain Odoo
-                for coo in cookie:
-                    response_redirect.set_cookie(
-                        coo.name,
-                        coo.value,
-                        httponly=True,
-                        secure=True,
-                        domain='odoo.internal-fusion-erp.site',
-                        path='/',
-                        samesite='None'
-                    )
-                return response_redirect
+            if (odoo_sts):                                
+                print(cookie['session_id'])
+                resp = JsonResponse({'status': True, 'data':{'merchant': 'odoo', 'odoo_session': cookie['session_id']}})     
+                return resp
             
             user = authenticate(request=request, username=username, password=passw)
             if user:                

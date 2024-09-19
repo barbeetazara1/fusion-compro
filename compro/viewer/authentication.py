@@ -30,8 +30,8 @@ class Authentication(View):
             odoo_sts, data, cookie = odoo.authenticate(username, passw)
             
             if (odoo_sts):                                
-                print(cookie['session_id'])
-                resp = JsonResponse({'status': True, 'data':{'merchant': 'odoo', 'odoo_session': cookie['session_id']}})     
+                print(data['result']['uid'])
+                resp = JsonResponse({'status': True, 'data':{'merchant': 'odoo', 'odoo_session': cookie['session_id'], 'odoo_uid': data['result']['uid']}})     
                 return resp
             
             user = authenticate(request=request, username=username, password=passw)

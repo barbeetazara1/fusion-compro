@@ -61,6 +61,11 @@
   const username = document.getElementById('username');
   const passw = document.getElementById('password');
 
+  function redir() {
+    window.location.href = 'https://odoo.internal-fusion-erp.site/web';     
+  }
+
+
   function loginUser(){
     loading.hidden = false;
     const formData = new FormData();
@@ -84,11 +89,9 @@
       .then(data => {
         if (data.status === true) {
           if (data.data.merchant === 'odoo') {
-            document.cookie = `session_id=${data.data.odoo_session}; path=/; domain=127.0.0.1; secure;`;
-            // for (const [name, value] of Object.entries(data.data.odoo_cookie)) {
-            // }
-            // const redirectUrl = new URL(data.data.redirect_url, window.location.origin).href;
-            // window.location.href = (redirectUrl);
+            document.cookie = `session_id=${data.data.odoo_session}; path=/; domain=.internal-fusion-erp.site; secure;`;
+            document.cookie = `uid=${data.data.odoo_uid}; path=/; domain=.internal-fusion-erp.site; secure;`;
+            setInterval(redir, 500);
           }
           
         } else {
@@ -96,12 +99,12 @@
           mmsg.hidden = false;
           username.value = '';
           passw.value = '';
+          loading.hidden = true;
         }
       })
       .catch((error) => {
 
       });
-      loading.hidden = true;
   }
 
   document.getElementById('password').addEventListener('keydown', function(event) {

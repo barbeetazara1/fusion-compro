@@ -10,4 +10,3 @@ compro/staticfiles
 compro/static/.DS_Store
 compro/updater.sh
 compro/*.sqlite3
-

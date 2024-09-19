@@ -61,6 +61,8 @@
   const username = document.getElementById('username');
   const passw = document.getElementById('password');
 
+  deleteCookie();
+
   function redir() {
     window.location.href = 'https://odoo.internal-fusion-erp.site/web';     
   }
@@ -88,8 +90,11 @@
       .then(data => {
         if (data.status === true) {
           if (data.data.merchant === 'odoo') {
-            document.cookie = `session_id=${data.data.odoo_session}; path=/; domain=.internal-fusion-erp.site; secure;`;
-            document.cookie = `uid=${data.data.odoo_uid}; path=/; domain=.internal-fusion-erp.site; secure;`;
+            const date = new Date();
+            date.setTime(date.getTime() + (minutes * 60 * 1000)); // Konversi menit ke milidetik
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = `session_id=${data.data.odoo_session}; path=/; domain=.internal-fusion-erp.site; secure; expires=${expires};`;
+            document.cookie = `uid=${data.data.odoo_uid}; path=/; domain=.internal-fusion-erp.site; secure; expires=${expires};`;
             setInterval(redir, 500);
           }
           
@@ -106,8 +111,14 @@
       });
   }
 
+  function deleteCookie() {
+    document.cookie = 'session_id' + '=; Max-Age=0; path=/; domain=' + location.hostname + ';';
+    document.cookie = 'uid' + '=; Max-Age=0; path=/; domain=' + location.hostname + ';';
+    console.log('session_id' + '=; Max-Age=0; path=/; domain=' + location.hostname + ';');
+  }
+
   document.getElementById('password').addEventListener('keydown', function(event) {
-    // Jika tombol yang ditekan adalah Enter
+    
     if (event.key === "Enter") {
         event.preventDefault();  // Mencegah form submit default
         loginUser();  // Memanggil fungsi login untuk fetch

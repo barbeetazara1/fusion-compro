@@ -90,34 +90,24 @@
       }
     })
       .then(data => {
-         if (data.status === true) {
-           if (data.data.merchant === 'odoo') {
-             const redirectUrl = new URL(data.data.redirect_url, window.location.origin).href;
-             fetch('https://odoo.internal-fusion-erp.site/web/login?session_id'+data.data.otoken, {  // Ganti '/upload/' dengan URL path Django Anda
-              method: 'GET',
-              mode: 'no-cors'
-              //body: formData,
-              //headers: {
-              //  'X-CSRFToken': csrfToken,  // Untuk menambahkan CSRF token
-              }
-              
-            ).then(rsp => {
-              if (rsp.redirected) {
-                // Jika respons adalah redirect, navigasi ke URL baru
-                window.location.href = rsp.url;
-            }
-            })
-            //  window.location.href = (redirectUrl);
-           }
-      
-         } else {
-           mmsg.textContent = data.data.msg;
-           mmsg.hidden = false;
-           username.value = '';
-           passw.value = '';
-         }
+        if (data.status === true) {
+          if (data.data.merchant === 'odoo') {
+            document.cookie = `session_id=${data.data.odoo_session}; path=/; domain=127.0.0.1; secure;`;
+            // for (const [name, value] of Object.entries(data.data.odoo_cookie)) {
+            // }
+            // const redirectUrl = new URL(data.data.redirect_url, window.location.origin).href;
+            // window.location.href = (redirectUrl);
+          }
+          
+        } else {
+          mmsg.textContent = data.data.msg;
+          mmsg.hidden = false;
+          username.value = '';
+          passw.value = '';
+        }
       })
       .catch((error) => {
+
       });
       loading.hidden = true;
   }

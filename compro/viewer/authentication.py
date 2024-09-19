@@ -38,22 +38,13 @@ class Authentication(View):
                 request.session['odoo_username'] = user_name
                 request.session['odoo_db'] = db
 
+                        # Siapkan data cookie untuk dikirim ke klien
                 cookie_data = {o_cook.name: o_cook.value for o_cook in cookie}
-                # Mengarahkan pengguna ke Odoo
+                print(cookie_data['session_id'])
+                # Kirimkan URL redirect dan data cookie ke klien
                 redirect_url = f"https://{settings.ODOO_URL}/web"
-                response_redirect = HttpResponseRedirect(redirect_url)
-                # Atur cookie untuk domain Odoo
-                for coo in cookie:
-                    response_redirect.set_cookie(
-                        coo.name,
-                        coo.value,
-                        httponly=True,
-                        secure=True,
-                        domain='odoo.internal-fusion-erp.site',
-                        path='/',
-                        samesite='None'
-                    )
-                return response_redirect
+                resp = JsonResponse({'status': True, 'data':{'merchant': 'odoo', 'all_cookie': cookie_data, 'redirect_url': redirect_url, 'otoken': cookie_data['session_id']}})
+                return resp
             
             user = authenticate(request=request, username=username, password=passw)
             if user:                

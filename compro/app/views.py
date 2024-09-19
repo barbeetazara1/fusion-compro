@@ -19,7 +19,7 @@ def check_trial_status(request):
         trial_status = True
 
         return JsonResponse({
-            'status': True,
+            'status': False,
             'data': {
                 'msg': '200' if trial_status else 'Trial expired'
             }

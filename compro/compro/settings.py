@@ -25,10 +25,8 @@ ODOO_MAIN_PATH = root_env['odoo_conf']['main_path']
 ODOO_DB = root_env['odoo_conf']['database']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://mlawyer.systema.id',
-    'http://mlawyer.systema.id',
-    'https://systema.id',
-    'http://systema.id',
+    'https://internal-fusion-erp.site',
+    'http://internal-fusion-erp.site'
 ]
 
 ALLOWED_HOSTS = ['internal-fusion-erp.site']

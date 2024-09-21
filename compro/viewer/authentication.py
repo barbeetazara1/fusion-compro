@@ -6,6 +6,8 @@ from app.models import Users
 from django.http import JsonResponse, HttpResponseRedirect
 from services import odoo
 
+from services.logger import logger
+
 class Authentication(View):
     
     context = ''
@@ -24,26 +26,31 @@ class Authentication(View):
     def post(self, request, *args, **kwargs):
         
         if (self.context == 'login'):
+            logger.info('Authentication POST API')
             username = request.POST.get('username')
             passw = request.POST.get('password')
             
             odoo_sts, data, cookie = odoo.authenticate(username, passw)
             
-            if (odoo_sts):                                
-                print(data['result']['uid'])
+            if (odoo_sts):                  
+                logger.info(f'Odoo user logged in - {cookie['session_id']} - (deprecated)')
                 resp = JsonResponse({'status': True, 'data':{'merchant': 'odoo', 'odoo_session': cookie['session_id'], 'odoo_uid': data['result']['uid']}})     
                 return resp
             
             user = authenticate(request=request, username=username, password=passw)
+            logger.info(f'Fusion user auth - {username}')
             if user:                
                 try:
                     login(request, user)
-                    return JsonResponse({'status': True, 'data':{'merchant': 'fusion'}})     
+                    logger.info(f'Fusion user logged in.')
+                    return JsonResponse({'status': True, 'data':{'merchant': 'fusion', 'redirect_url': str(redirect("main-dashboard").url)}})     
                 except Exception as login_eror:
+                    logger.error(f'Fusion user error while login() - {login_eror}')
                     print('Error when try login', login_eror)
-                    return JsonResponse({'status': False, 'data':{'msg': 'Internal server error'}})     
+                    return JsonResponse({'status': False, 'data':{'merchant': 'fusion', 'redirect_url': str(redirect("main-dashboard").url)}})
             else:
-                return JsonResponse({'status': False, 'data':{'msg': 'User/Password salah'}})     
+                logger.error(f'Fusion user not found - {username}')
+                return JsonResponse({'status': False, 'data':{'merchant': 'fusion', 'msg': 'Tidak ada user ditemukan.'}})
 
 
         if (self.context == 'register'):

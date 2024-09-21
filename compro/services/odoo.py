@@ -17,7 +17,12 @@ def authenticate(username, password):
     session = requests.Session()
     response = session.post(url, json=data)
     if (response.status_code == 200):
-        return (True, response.json(), session.cookies)  # Mengembalikan respons Odoo
+        try:
+            res = response.json()['result']
+            return (True, response.json(), session.cookies)  # Mengembalikan respons Odoo
+        except:
+            return (False, None, None)
+            
     else:
         print('Odoo auth error!')
         return (False, None, None)

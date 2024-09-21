@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     
 </head>
@@ -134,29 +135,29 @@
               <div class="features-card">
 
                 <div class="card-icon">
-                  <ion-icon name="create-outline" aria-hidden="true"></ion-icon>
+                  <i class="fas fa-dollar"></i>
                 </div>
-
-                <h3 class="h3 card-title">Easy to Edit</h3>
-
+                
+                <h3 class="h3 card-title">Low Cost</h3>
+                
                 <p class="card-text">
-                  Lorem ipsum dolor sit cons ectetur adipiscing
+                  Harga terjangkau cocok untuk startup bussiness
                 </p>
-
+                
               </div>
             </li>
-
+            
             <li class="features-item">
               <div class="features-card">
-
+                
                 <div class="card-icon">
-                  <ion-icon name="shield-checkmark-outline" aria-hidden="true"></ion-icon>
+                  <i class="fas fa-shield"></i>                  
                 </div>
 
                 <h3 class="h3 card-title">Fully Secure</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit cons ectetur adipiscing
+                  Tingkat keamanan level tinggi dengan ISO 270001
                 </p>
 
               </div>
@@ -166,13 +167,13 @@
               <div class="features-card">
 
                 <div class="card-icon">
-                  <ion-icon name="settings-outline" aria-hidden="true"></ion-icon>
+                  <i class="fas fa-users"></i>   
                 </div>
 
-                <h3 class="h3 card-title">Manage User</h3>
+                <h3 class="h3 card-title">Popularity</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit cons ectetur adipiscing
+                  UI/UX yang Didesain Khusus untuk ERP (Odoo Based)
                 </p>
 
               </div>
@@ -185,10 +186,10 @@
                   <ion-icon name="cube-outline" aria-hidden="true"></ion-icon>
                 </div>
 
-                <h3 class="h3 card-title">Free Trial</h3>
+                <h3 class="h3 card-title">Integrated</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit cons ectetur adipiscing
+                  Terintegrasi dengan platform lain meningkatkan mobilitas bisnis
                 </p>
 
               </div>
@@ -222,10 +223,8 @@
             <h2 class="h2 section-title">{{ app_alias_name }} dipercaya lebih dari 150 perusahaan</h2>
 
             <p class="section-text">
-              Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullamcorper mattis,
-              pulvinar
-              dapibus leo. Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullam
-              corpe
+              Di era digital yang terus berkembang, memilih solusi sistem manajemen perusahaan yang tepat adalah kunci untuk meningkatkan efisiensi dan produktivitas bisnis Anda. 
+              {{ app_alias_name }} telah dipercaya oleh lebih dari 150 perusahaan sebagai mitra strategis dalam mengelola sumber daya mereka dengan efektif.
             </p>
 
             <ul class="about-list">
@@ -233,15 +232,14 @@
               <li class="about-item">
 
                 <div class="item-icon">
-                  <ion-icon name="folder" aria-hidden="true"></ion-icon>
+                  <i class="fas fa-phone"></i>   
                 </div>
 
                 <div>
-                  <h3 class="h3 item-title">Device Quality Design</h3>
+                  <h3 class="h3 item-title">Dukungan Pelanggan Terbaik</h3>
 
                   <p class="item-text">
-                    Lorem ipsum dolor sit amet, consec tetur adipiscing elit Lorem ipsum dolor sit amet, consec tetur
-                    adipiscing elit.
+                    Tim kami yang berpengalaman selalu siap membantu Anda dengan dukungan teknis dan konsultasi, memastikan pengalaman implementasi yang lancar.  
                   </p>
                 </div>
 
@@ -374,9 +372,9 @@
       <section class="section blog" id="demo" aria-label="blog">
         <div class="container">
 
-          <p class="section-subtitle">Request Demo</p>
+          <p class="section-subtitle">GRATIS 14 HARI</p>
 
-          <h2 class="h2 section-title">Request Demo From Us!</h2>
+          <h2 class="h2 section-title">Request Demo</h2>
           <form action="" class="contact-form">
 
             <div class="input-wrapper">
@@ -391,13 +389,13 @@
             <div class="checkbox-wrapper">
               <input type="checkbox" name="terms_and_policy" id="terms" required class="checkbox">
 
-              <label for="terms" class="label">
+              <label for="terms" class="label" id="agreement">
                 Accept <a href="#" class="label-link">Terms of Services</a> and <a href="#" class="label-link">Privacy
                   Policy</a>
               </label>
             </div>
 
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button type="submit" class="btn btn-primary" id="btn-request">Minta Demo</button>
 
           </form>
         </div>

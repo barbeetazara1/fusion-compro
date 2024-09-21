@@ -64,10 +64,11 @@
   deleteCookie();
 
   function redir() {
-    window.location.href = 'https://odoo.internal-fusion-erp.site/web';     
+    window.location.href = 'https://odoo.internal-fusion-erp.site/web';
   }
-  
-  function loginUser(){
+
+
+  function loginUser() {
     loading.hidden = false;
     const formData = new FormData();
     formData.append('username', username.value);
@@ -79,7 +80,7 @@
       headers: {
         'X-CSRFToken': csrfToken,  // Untuk menambahkan CSRF token
       },
-      
+
     }).then(response => {
       if (response.status === 200) {
         return response.json();  // Jika status 200, konversi ke JSON
@@ -91,13 +92,13 @@
         if (data.status === true) {
           if (data.data.merchant === 'odoo') {
             const date = new Date();
-            date.setTime(date.getTime() + (minutes * 60 * 1000)); // Konversi menit ke milidetik
+            date.setTime(date.getTime() + (2 * 60 * 1000)); // Konversi menit ke milidetik
             const expires = "expires=" + date.toUTCString();
-            document.cookie = `session_id=${data.data.odoo_session}; path=/; domain=.internal-fusion-erp.site; secure; expires=${expires};`;
-            document.cookie = `uid=${data.data.odoo_uid}; path=/; domain=.internal-fusion-erp.site; secure; expires=${expires};`;
+            document.cookie = `odoo_sid=${data.data.odoo_session}; path=/; domain=.internal-fusion-erp.site; secure; expires=${expires};`;
+            // document.cookie = `uid=${data.data.odoo_uid}; path=/; domain=.internal-fusion-erp.site; secure; expires=${expires};`;
             setInterval(redir, 500);
           }
-          
+
         } else {
           mmsg.textContent = data.data.msg;
           mmsg.hidden = false;
@@ -112,19 +113,34 @@
   }
 
   function deleteCookie() {
-    document.cookie = 'session_id' + '=; Max-Age=0; path=/; domain=' + location.hostname + ';';
+    document.cookie = 'odoo_sid' + '=; Max-Age=0; path=/; domain=' + location.hostname + ';';
     document.cookie = 'uid' + '=; Max-Age=0; path=/; domain=' + location.hostname + ';';
-    console.log('session_id' + '=; Max-Age=0; path=/; domain=' + location.hostname + ';');
+    fetch('https://odoo.internal-fusion-erp.com/clear-session/', {
+      method: 'POST',
+      credentials: 'include', // penting untuk mengirimkan cookie di request
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ action: 'delete_cookie' })
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log('Cookie odoo.pusen.com berhasil dihapus');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
 
-  document.getElementById('password').addEventListener('keydown', function(event) {
-    
+  document.getElementById('password').addEventListener('keydown', function (event) {
+
     if (event.key === "Enter") {
-        event.preventDefault();  // Mencegah form submit default
-        loginUser();  // Memanggil fungsi login untuk fetch
+      event.preventDefault();  // Mencegah form submit default
+      loginUser();  // Memanggil fungsi login untuk fetch
     }
   });
-  
+
   loginBtn.addEventListener('click', function () {
     event.preventDefault();  // Mencegah form submit default
     loginUser();  // Memanggil fungsi login untuk fetch    

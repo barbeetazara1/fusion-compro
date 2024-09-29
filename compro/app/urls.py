@@ -25,6 +25,7 @@ urlpatterns = [
     path('trial/', Authentication.as_view(context='trial'), name='trial'),
     path('logout/', Authentication.as_view(context='logout'), name='logout'),
     path('register/', Authentication.as_view(context='register'), name='register'),
+    path('terms-of-services/', views.terms_of_services, name='terms-of-services'),
 
     # API Based
     path('api/visitor/', API.as_view(context='api-visitor'), name='api-visitor'),

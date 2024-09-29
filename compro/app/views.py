@@ -11,6 +11,14 @@ def index(request):
     resp = render(template_name='index.html', request=request, context=ctx)
     return resp
 
+def terms_of_services(request):
+    ctx = {}            
+    all_profile = OwnerProfile.objects.all()
+    for profile_item in all_profile:
+        ctx[profile_item.info] = profile_item.content   
+    resp = render(template_name='terms_of_services.html', request=request, context=ctx)
+    return resp
+
 def check_trial_status(request):
     if request.method == 'GET':
         # Logika untuk memeriksa status trial

@@ -29,4 +29,5 @@ urlpatterns = [
     # API Based
     path('api/visitor/', API.as_view(context='api-visitor'), name='api-visitor'),
     path('api/reporter/', API.as_view(context='api-reporter'), name='api-reporter'),
+    path('api/client-inboz/', API.as_view(context='api-client-inbox'), name='api-client-inbox'),
 ]

@@ -2,8 +2,7 @@ from functools import wraps
 from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect
 from django.conf import settings
-import os, json
-import os
+import os, json, re
 
 
 def role_required(allowed_roles):
@@ -31,7 +30,29 @@ def read_json(filename):
     else:
         print("Error when try unpacking configuration file.")
         return {}
-    
+
+def is_valid_phone_number(phone_number):
+    pattern = r"^08\d{8,11}$"
+    if re.match(pattern, phone_number):
+        if (len(str(phone_number)) < 12 > 14):
+            return False, None
+        return True, phone_number
+    return False, None
 
 
-    
+def is_valid_name(name):
+    # Regex untuk memvalidasi nama
+    pattern = r"^[A-Za-z\s]+$"
+    if re.match(pattern, name):
+        # Mengembalikan True dan nama dengan huruf kapital di awal setiap kata
+        capitalized_name = ' '.join(word.capitalize() for word in name.split())
+        return True, capitalized_name
+    return False, None
+
+
+# Fungsi untuk memvalidasi email
+def is_valid_email(email):
+    email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if re.match(email_regex, email):
+        return True, email
+    return False, None

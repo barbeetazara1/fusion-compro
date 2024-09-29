@@ -2,6 +2,7 @@ from django.conf import settings
 from django.views import View
 from django.http import JsonResponse
 from app.models import Visitor
+from services.utils import is_valid_name, is_valid_phone_number, is_valid_email
 from django.utils import timezone
 from datetime import timedelta
 import datetime
@@ -64,4 +65,53 @@ class API(View):
             return JsonResponse({'status': True, 'data': visitor_weekly_graph})     
                 
 
+        if (self.context == 'api-client-inbox'):
+            try:
+                ip_address = request.META.get('REMOTE_ADDR')                        
+                user_agent = request.META.get('HTTP_USER_AGENT')    
+                subject = request.POST['name']                    
+                email = request.POST['email']                                            
+                phone_input = request.POST['phone']                    
+                try:
+                    valid_name, name_capital = is_valid_name(subject)
+
+                    if not valid_name:
+                        return JsonResponse({
+                            'status': False, 
+                            'data': {'msg': 'Nama invalid, pastikan menggunakan nama yang sesuai.'}
+                        })
+
+                    _valid, phone = is_valid_phone_number(phone_input)
+                    if not _valid:
+                        return JsonResponse({
+                            'status': False, 
+                            'data': {'msg': 'Nomor invalid, pastikan nomor yang di input valid. Ex: 081xxxxxx'}
+                        })
+
+                    __valid, email = is_valid_email(email)
+                    if not __valid:
+                        return JsonResponse({
+                            'status': False, 
+                            'data': {'msg': 'Email invalid, pastikan alamat email yang diinput valid.'}
+                        })
+
+                    # new_inbox = ClientInbox(ip_address=ip_address, user_agent=user_agent, subject=name_capital, phone_number=phone, message=desc)
+                    # new_inbox.save()
+                    # logger.info(f'New inbox client from {ip_address} / name : {name_capital}')
+                    
+                    return JsonResponse({
+                        'status': True, 
+                        'data': {'msg': 'Berhasil upload form, tunggu sampai kami menghubungi Anda.'}
+                    })
+
+                except Exception as error_models:
+                    # logger.error(f'Terjadi masalah saat akan menyimpan inbox ke database - {error_models}')
+                    return JsonResponse({
+                        'status': False, 
+                        'data': {'msg': 'Fail report'}
+                    })
+   
+            except Exception as error:
+                # logger.error(f'API Client Inbox bermasalah pada data request - {error}')
+                return JsonResponse({'status': False, 'data': {'msg': 'Data invalid, please check your form or reload page.'}})
 

@@ -16,20 +16,20 @@
   <!-- 
     - custom css link
   -->
-  
+
   <!-- 
     - google font link
     -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
 </head>
 
 <body id="top">
-
+  {% csrf_token %}
   <!-- 
     - #HEADER
   -->
@@ -93,14 +93,16 @@
             <h1 class="h1 hero-title">{{description}}</h1>
 
             <p class="section-text">
-              Lebih dari 150+ perusahaan telah bergabung, platform terbaik dan simple untuk 
-              memudahkan Anda mengelola perusahaan. 
+              Lebih dari 150+ perusahaan telah bergabung, platform terbaik dan simple untuk
+              memudahkan Anda mengelola perusahaan.
             </p>
 
             <ul class="btn-list">
 
               <li>
-                <a href="#" class="btn btn-primary" aria-label="DEMO GRATIS" style="padding: 1em 5em; font-size: 1em; font-family: sans-serif; font-weight: bold; letter-spacing: 1px;">DEMO GRATIS</a>
+                <a href="#" class="btn btn-primary" aria-label="DEMO GRATIS"
+                  style="padding: 1em 5em; font-size: 1em; font-family: sans-serif; font-weight: bold; letter-spacing: 1px;">DEMO
+                  GRATIS</a>
               </li>
 
             </ul>
@@ -108,8 +110,8 @@
           </div>
 
           <figure class="hero-banner">
-              <img src="{% static 'images/hero-banner.png'%}" width="769" height="804" alt="hero banner" class="w-100">
-        </figure>
+            <img src="{% static 'images/hero-banner.png'%}" width="769" height="804" alt="hero banner" class="w-100">
+          </figure>
 
         </div>
       </section>
@@ -137,21 +139,21 @@
                 <div class="card-icon">
                   <i class="fas fa-dollar"></i>
                 </div>
-                
+
                 <h3 class="h3 card-title">Low Cost</h3>
-                
+
                 <p class="card-text">
                   Harga terjangkau cocok untuk startup bussiness
                 </p>
-                
+
               </div>
             </li>
-            
+
             <li class="features-item">
               <div class="features-card">
-                
+
                 <div class="card-icon">
-                  <i class="fas fa-shield"></i>                  
+                  <i class="fas fa-shield"></i>
                 </div>
 
                 <h3 class="h3 card-title">Fully Secure</h3>
@@ -167,7 +169,7 @@
               <div class="features-card">
 
                 <div class="card-icon">
-                  <i class="fas fa-users"></i>   
+                  <i class="fas fa-users"></i>
                 </div>
 
                 <h3 class="h3 card-title">Popularity</h3>
@@ -212,8 +214,8 @@
         <div class="container">
 
           <figure class="about-banner">
-            <img src="{% static 'images/about-banner.png'%}" width="1262" height="1357" loading="lazy" alt="about banner"
-              class="w-100">
+            <img src="{% static 'images/about-banner.png'%}" width="1262" height="1357" loading="lazy"
+              alt="about banner" class="w-100">
           </figure>
 
           <div class="about-content">
@@ -223,8 +225,10 @@
             <h2 class="h2 section-title">{{ app_alias_name }} dipercaya lebih dari 150 perusahaan</h2>
 
             <p class="section-text">
-              Di era digital yang terus berkembang, memilih solusi sistem manajemen perusahaan yang tepat adalah kunci untuk meningkatkan efisiensi dan produktivitas bisnis Anda. 
-              {{ app_alias_name }} telah dipercaya oleh lebih dari 150 perusahaan sebagai mitra strategis dalam mengelola sumber daya mereka dengan efektif.
+              Di era digital yang terus berkembang, memilih solusi sistem manajemen perusahaan yang tepat adalah kunci
+              untuk meningkatkan efisiensi dan produktivitas bisnis Anda.
+              {{ app_alias_name }} telah dipercaya oleh lebih dari 150 perusahaan sebagai mitra strategis dalam
+              mengelola sumber daya mereka dengan efektif.
             </p>
 
             <ul class="about-list">
@@ -232,14 +236,15 @@
               <li class="about-item">
 
                 <div class="item-icon">
-                  <i class="fas fa-phone"></i>   
+                  <i class="fas fa-phone"></i>
                 </div>
 
                 <div>
                   <h3 class="h3 item-title">Dukungan Pelanggan Terbaik</h3>
 
                   <p class="item-text">
-                    Tim kami yang berpengalaman selalu siap membantu Anda dengan dukungan teknis dan konsultasi, memastikan pengalaman implementasi yang lancar.  
+                    Tim kami yang berpengalaman selalu siap membantu Anda dengan dukungan teknis dan konsultasi,
+                    memastikan pengalaman implementasi yang lancar.
                   </p>
                 </div>
 
@@ -306,8 +311,8 @@
           </div>
 
           <figure class="about-banner">
-            <img src="{% static 'images/about-banner-2.png'%}" width="1146" height="1226" loading="lazy" alt="about banner"
-              class="w-100">
+            <img src="{% static 'images/about-banner-2.png'%}" width="1146" height="1226" loading="lazy"
+              alt="about banner" class="w-100">
           </figure>
 
         </div>
@@ -325,7 +330,8 @@
         <div class="container">
 
           <figure class="app-banner">
-            <img src="{% static 'images/app.png'%}" width="449" height="608" loading="lazy" alt="app banner" class="w-100">
+            <img src="{% static 'images/app.png'%}" width="449" height="608" loading="lazy" alt="app banner"
+              class="w-100">
           </figure>
 
           <div class="app-content">
@@ -370,27 +376,28 @@
       -->
 
       <section class="section blog" id="demo" aria-label="blog">
-        <div class="container">
+        <div class="container" id="form-container">
 
           <p class="section-subtitle">GRATIS 14 HARI</p>
 
           <h2 class="h2 section-title">Request Demo</h2>
-          <form action="" class="contact-form">
+          <div class="contact-form">
 
             <div class="input-wrapper">
-              <input type="text" name="name" aria-label="name" placeholder="Your name*" required class="input-field">
+              <input type="text" id="name" aria-label="name" placeholder="Your name*" required class="input-field">
             </div>
 
             <div class="input-wrapper">
-              <input type="email" name="email" aria-label="name" placeholder="Your email" required class="input-field">
+              <input type="email" id="email" aria-label="name" placeholder="Your email" required class="input-field">
             </div>
 
             <div class="input-wrapper">
-              <input type="number" name="phone" aria-label="phone" placeholder="Phone number*" required class="input-field">
+              <input type="number" id="phone" aria-label="phone" placeholder="Phone number*" required
+                class="input-field">
             </div>
 
             <div class="checkbox-wrapper">
-              <input type="checkbox" name="terms_and_policy" id="terms" required class="checkbox">
+              <input type="checkbox" id="terms_and_policy" id="terms" required class="checkbox">
               <label for="terms" class="label" id="agreement">
                 Accept <a href="#" class="label-link">Terms of Services</a> and <a href="#" class="label-link">Privacy
                   Policy</a>
@@ -399,7 +406,7 @@
 
             <button type="submit" class="btn btn-primary" id="btn-request">Minta Demo</button>
 
-          </form>
+          </div>
         </div>
       </section>
     </article>
@@ -549,6 +556,57 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+    const submitBtn = document.getElementById('btn-request');
+    const formContainer = document.getElementById('form-container');
+
+    submitBtn.addEventListener('click', function (event) {
+      event.preventDefault();  // Mencegah reload halaman default saat submit              
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', phone);
+
+
+      fetch('', {  // Ganti '/upload/' dengan URL path Django Anda
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRFToken': csrfToken,  // Untuk menambahkan CSRF token
+        },
+      }).then(response => {
+        if (response.status === 200) {
+          return response.json();  // Jika status 200, konversi ke JSON
+        } else {
+          throw new Error('Terjadi kesalahan: ' + response.status);  // Jika bukan 200, lempar error
+        }
+      })
+        .then(data => {
+          if (data.status === true) {
+            const respMsg = data.data.msg;
+            alert(respMsg);
+            contactDiv.style.display = 'none';
+            titleDiv.style.display = 'none';
+            subtitleDiv.style.display = 'none';
+          } else {
+            alert(data.data.msg);
+          }
+          formContainer.remove();
+        })
+        .catch((error) => {
+          alert('Internal server error: ', error.message);  // Menampilkan alert jika ada kesalahan                    
+          formContainer.remove();
+        });
+
+    });
+  </script>
 
 </body>
 
